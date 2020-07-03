@@ -1,34 +1,28 @@
 module coterminal
-   include("../shared/pi_units.jl")
-   using .pi_units
-   function iscoterminal(a, b, fullrotation)::Bool
-      return (a % fullrotation) == (b % fullrotation)
-   end
+   include("../shared/units.jl")
+   using .units
 
-   fulldeg = 360
+   iscoterminal(a, b, fullrotation)::Bool = (a % fullrotation) == (b % fullrotation)
 
-   function iscoterminal_deg(a::Number, b::Number)::Bool
-      return iscoterminal(a, b, fulldeg)
-   end
+   fulldeg = Degrees(360)
+
+   iscoterminal_deg(a::Degrees, b::Degrees)::Bool = iscoterminal(a.deg, b.deg, fulldeg.deg)
 
    fullrad = TimesPi(2)
-   function iscoterminal_rad(a::TimesPi, b::TimesPi)::Bool
-      return iscoterminal(a.coefficient, b.coefficient, fullrad.coefficient)
-   end
+   iscoterminal_rad(a::TimesPi, b::TimesPi)::Bool = iscoterminal(a.coefficient, b.coefficient, fullrad.coefficient)
 
-   function iscoterminal_rad(a::Number, b::Number)::Bool
-      return iscoterminal(a, b, fullrad.coefficient * pi)
-   end
+   iscoterminal_rad(a::Number, b::Number)::Bool = iscoterminal(a, b, fullrad.coefficient * pi)
 
    function list_coterminals(d, n, fullrotation)
       let i = -n
          while i <= n
-            println(string(d + i * fulldeg, "°"))
+            println(string(d + i * fullrotation))
             i += 1
          end
       end
 
-   function list_coterminals_deg(d::Number, n::Integer)
+   function list_coterminals_deg(d::Degrees, n::Integer)
+      list_coterminals(d)
       let i = -n
          while i <= n
             println(string(d + i * fulldeg, "°"))

@@ -17,6 +17,7 @@ module units
       print(io, string(dpi.dividend, " / π"))
    end
 
+   export Degrees
    export TimesPi
    export DivPi
 end
