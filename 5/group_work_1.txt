@@ -1,0 +1,22 @@
+# Groupwork 1: Chapter 5
+
+## 1
+
+39pi/4
+m = 39 % 4 = 3
+39pi/4 = (39 - m)pi/4 + (m)pi/4 = 9pi + 3pi/4 -> 9pi - 8pi + 3pi/4
+a = 1pi + 3pi/4 = 7pi/4
+
+## 2
+
+d = 24in
+c = 24(pi)in
+
+How many times does c go into 4 miles?
+4 miles / 24(pi)in = 1 mile / 6(pi)in = 63360 in / 6(pi)in
+cont = 63360 / 6pi = 10560pi revolutions
+
+## 3
+
+r = 1u
+c = 2pi
